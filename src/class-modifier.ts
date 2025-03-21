@@ -13,7 +13,7 @@
 
 class User{
     private name:string=''
-    age:number | any
+    age:number 
 
     constructor(name:string, age:number){
         this.name = name,
