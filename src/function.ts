@@ -12,7 +12,7 @@ export function Math(num1:number, num2:number):void{
     
 }
 
-student(10, 20)
+Math(10, 20)
 
 
 

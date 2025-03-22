@@ -10,4 +10,4 @@ console.log(result);
 function Math(num1, num2) {
     console.log(num1 + num2);
 }
-student(10, 20);
+Math(10, 20);
