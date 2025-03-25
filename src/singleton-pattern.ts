@@ -20,11 +20,5 @@ const person2 = Person.getInstance()
 console.log(person1 === person2)
 
 
-function add(num1:number, num2:number) : number{
-    return num1 + num2
-}
 
-add(1,2)
 
-let k: string = '';
-console.log(typeof k);

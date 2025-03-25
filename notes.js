@@ -37,4 +37,8 @@
     6)throw 
         1)Stops Execution immediately and throws an error which must be handled with try...catch. 
         2)Otherwise the program crashes.
+
+    7)npm
+        1)npm update -> patch and minior version only 
+        2)npm upgrade -> patch, minior, and major version
 */

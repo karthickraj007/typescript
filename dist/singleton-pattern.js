@@ -16,9 +16,3 @@ exports.Person = Person;
 const person1 = Person.getInstance();
 const person2 = Person.getInstance();
 console.log(person1 === person2);
-function add(num1, num2) {
-    return num1 + num2;
-}
-add(1, 2);
-let k = '';
-console.log(typeof k);

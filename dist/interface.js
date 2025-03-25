@@ -1,6 +1,7 @@
 "use strict";
 /*
-    1)Interfaces are a powerful tool in TypeScript to define the structure of objects.
+    1)interface is used to define the structure of an objects.
+    2)interface can act like type.
     2)Key Features of Interfaces:
         1)Property Definitions
         2)Optional Properties
@@ -10,12 +11,34 @@
 
 */
 Object.defineProperty(exports, "__esModule", { value: true });
-const user1 = {
-    name1: "Alice",
-    age1: 30,
+const user = {
+    name: "Alice",
+    age: 30,
     id: 12345,
     greet() {
-        console.log("Hello, " + this.name1);
+        console.log("Hello, " + this.name);
     },
+    getData() {
+        return 'hello world!';
+    }
 };
-user1.greet(); // Output: Hello, Alice
+user.greet(); // Output: Hello, Alice
+class Admin {
+    constructor(name, age, id, email) {
+        this.id = id;
+        this.email = email;
+        this.name = name;
+        this.age = age;
+    }
+    greet() {
+        console.log("welcome " + this.name);
+    }
+    getData() {
+        return "hello " + this.name;
+    }
+}
+const admin = new Admin("karthik", 22, 7117, "karthik@gmail.com");
+function displayMessage(admin) {
+    admin.greet();
+}
+displayMessage(admin);

@@ -25,7 +25,7 @@ console.log(empDetails);
 let empInfo = ['Karthik', 25, 'student'];
 //empInfo = ['Karthik', 25, 'student', true]    //-> it throw error
 //empInfo.push(true)     //-> it wont throw error
-//5)enum ->An enum is a special type in TypeScript that defines a set of named constant values
+//5)enum ->An enum is a special type in TypeScript that defines a set of named constant values.
 var Role;
 (function (Role) {
     Role[Role["Admin"] = 0] = "Admin";

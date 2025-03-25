@@ -41,7 +41,7 @@ let empInfo:[string, number, string] = ['Karthik', 25, 'student']
 //empInfo.push(true)     //-> it wont throw error
 
 
-//5)enum ->An enum is a special type in TypeScript that defines a set of named constant values
+//5)enum ->An enum is a special type in TypeScript that defines a set of named constant values.
 enum Role {
     Admin,
     User,
@@ -76,4 +76,17 @@ function setMode(mode: "light" | "dark") {
   setMode("light"); //Allowed
   setMode("dark");  //Allowed
   //setMode("blue");  //Error: Only "light" or "dark" is allowed
+
+
+//8)unknown
+    let data: unknown;  
+
+    data = "Hello";  
+    //data.toUpperCase(); //Property 'toUpperCase' does not exist on type 'unknown'
+
+    if (typeof data === "string") {
+    console.log(data.toUpperCase()); 
+    }
+
+
   
