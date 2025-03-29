@@ -6,6 +6,10 @@ let val:string = 'karthik'
 
 let isMajor:boolean = false
 
+let n: null = null; 
+let u: undefined = undefined;
+
+
 //2)reference types
 
 //Array
@@ -78,7 +82,7 @@ function setMode(mode: "light" | "dark") {
   //setMode("blue");  //Error: Only "light" or "dark" is allowed
 
 
-//8)unknown
+//7)unknown
     let data: unknown;  
 
     data = "Hello";  

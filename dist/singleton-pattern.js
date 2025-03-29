@@ -15,4 +15,4 @@ class Person {
 exports.Person = Person;
 const person1 = Person.getInstance();
 const person2 = Person.getInstance();
-console.log(person1 === person2);
+console.log(person1 === person2); //true

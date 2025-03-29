@@ -61,3 +61,13 @@ function displayMessage(admin:User){
 }
 
 displayMessage(admin)
+
+//interface as function type
+
+interface Add {
+    (a: number, b: number): number; // Function type signature
+  }
+  
+  const sum: Add = (x, y) => x + y;
+  
+  console.log(sum(10, 20)); // Output: 30

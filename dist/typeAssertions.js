@@ -8,7 +8,5 @@
 
 */
 Object.defineProperty(exports, "__esModule", { value: true });
-//database data
-let studentData = [{ name: 'karthik', age: 22, gender: 'male' }];
-let newstudentData = studentData;
-console.log(newstudentData[0]);
+let someValue = "TypeScript";
+let length = someValue.length; // Without this, TypeScript doesn't know it's a string

@@ -13,7 +13,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
     4)User-Defined Types(custom types) → Type Alias, Interface, Union, Intersection, Enum
 
 2)Type-check
-    1)Use typeof for primitives (string, number,boolean etc.).
+    1)Use typeof for primitives types (string, number,boolean etc.).
         let k = 'karthik'
         console.log(typeOf k)
 

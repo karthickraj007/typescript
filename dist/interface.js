@@ -42,3 +42,5 @@ function displayMessage(admin) {
     admin.greet();
 }
 displayMessage(admin);
+const sum = (x, y) => x + y;
+console.log(sum(10, 20)); // Output: 30

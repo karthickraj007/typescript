@@ -40,5 +40,5 @@
 
     7)npm
         1)npm update -> patch and minior version only 
-        2)npm upgrade -> patch, minior, and major version
+        2)npm upgrade -> all version(patch, minior, major)
 */

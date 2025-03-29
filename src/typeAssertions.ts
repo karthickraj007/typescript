@@ -8,15 +8,8 @@
 */
 
 
-type newStudent = {name:string, age:number, gender:string}[]
-
-//database data
-let studentData:{name:string, age:number, gender:string}[] = [{name:'karthik', age:22, gender:'male'}]
-
-
-let newstudentData:newStudent = studentData as newStudent
-console.log(newstudentData[0])
-
+let someValue: any = "TypeScript";
+let length: number = (someValue as string).length; // Without this, TypeScript doesn't know it's a string
 
 
 

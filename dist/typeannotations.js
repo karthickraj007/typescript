@@ -4,6 +4,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 let k = 40;
 let val = 'karthik';
 let isMajor = false;
+let n = null;
+let u = undefined;
 //2)reference types
 //Array
 let subject = ["Tamil", "English"];
@@ -53,3 +55,10 @@ function setMode(mode) {
 setMode("light"); //Allowed
 setMode("dark"); //Allowed
 //setMode("blue");  //Error: Only "light" or "dark" is allowed
+//7)unknown
+let data;
+data = "Hello";
+//data.toUpperCase(); //Property 'toUpperCase' does not exist on type 'unknown'
+if (typeof data === "string") {
+    console.log(data.toUpperCase());
+}
