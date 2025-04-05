@@ -28,7 +28,7 @@
 
 
     4)try catch Work?
-        1) try → Write the code that might cause an error.
+        1)try → Write the code that might cause an error.
         2)catch → If an error happens in try, the catch block runs and handles the error.
 
     5)return 
@@ -41,4 +41,21 @@
     7)npm
         1)npm update -> patch and minior version only 
         2)npm upgrade -> all version(patch, minior, major)
+
+    8)difference
+        1)Structure → it is blue print but does not execute anything.
+        2)Implementation → Provides actual working code that does something.
+
+    9)nodejs
+        Node.js is a tool that allow you run JavaScript outside the browser
+
+    10)What is Node.js made of?
+          Part	                                Role
+        V8 Engine	            Runs the JavaScript code (same as Chrome)
+        C++ Code	            Handles low-level tasks that JavaScript cannot do directly(like file system, networking, operating system)
+        Libuv	                it is a C/C++ library to handle asynchronous operations
+        Node API	            All built-in modules called nodeApi(like fs, http, path, etc.)
+
+    11)server
+        A server is a computer that provides data to clients over a network
 */

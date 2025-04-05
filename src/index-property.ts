@@ -12,7 +12,8 @@ interface User {
   const user: User = {
     name: "John",
     age: 25,
-    role: "admin"
+    role: "admin",
+    city:"chennai"
   };
   console.log(user.role); // Output: admin
   
