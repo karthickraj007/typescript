@@ -2,7 +2,7 @@
 /*
     1)interface is used to define the structure of an objects.
     2)interface can act like type.
-    2)Key Features of Interfaces:
+    3)Key Features of Interfaces:
         1)Property Definitions
         2)Optional Properties
         3)Readonly Properties
@@ -44,3 +44,9 @@ function displayMessage(admin) {
 displayMessage(admin);
 const sum = (x, y) => x + y;
 console.log(sum(10, 20)); // Output: 30
+let manager = {
+    name: "Sarah",
+    id: 101,
+    department: "HR"
+};
+console.log(manager.name); // Output: Sarah

@@ -4,14 +4,11 @@
 */
 
 interface User {
-    name: string;
-    age: number;
-    [key: string]: string | number; 
+    [key: string]: string
   }
   
   const user: User = {
     name: "John",
-    age: 25,
     role: "admin",
     city:"chennai"
   };

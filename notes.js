@@ -51,11 +51,24 @@
 
     10)What is Node.js made of?
           Part	                                Role
-        V8 Engine	            Runs the JavaScript code (same as Chrome)
+        V8 Engine	            A JavaScript engine is a program that reads and runs JavaScript code.
         C++ Code	            Handles low-level tasks that JavaScript cannot do directly(like file system, networking, operating system)
         Libuv	                it is a C/C++ library to handle asynchronous operations
         Node API	            All built-in modules called nodeApi(like fs, http, path, etc.)
 
     11)server
         A server is a computer that provides data to clients over a network
+
+    12)difference between software and tool
+        1)Software(General Purpose)
+           1)They help you do many tasks
+                Example: VS Code (lets you write code, debug, install extensions)
+            2)Microsoft Word → for writing documents
+
+        2)Tool(Developer-focused):
+            1)It helps you do one special task
+                Example:In VS Code, the Terminal is a tool that lets you run commands
+            2)Git is a tool inside VS Code to manage your code changes
+
+
 */
