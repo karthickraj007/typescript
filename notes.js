@@ -1,4 +1,9 @@
 /*
+
+    1)typescript:
+        1)JavaScript = the actual programming language that browsers and Node.js understand.
+        2)TypeScript = JavaScript + types (extra rules for better coding).
+
     1)setup typescript configuration
         1)install typescript
             npm i typescript
@@ -70,5 +75,21 @@
                 Example:In VS Code, the Terminal is a tool that lets you run commands
             2)Git is a tool inside VS Code to manage your code changes
 
+    13)Types of module
+        1)CommonJS (CJS) – Old and Default
+            Uses require() and module.exports.
 
+        2)ES Modules (ESM) – Modern Standard
+            Uses import and export.
+
+    14)"module": "commonjs"
+        Which import/export style should I use when converting TypeScript to JavaScript?
+
+    15)What is ECMAScript?
+        1)ECMAScript (ES) is the standard or rules for JavaScript.
+        2)Each year, new versions are released: ES5, ES6 (2015), ES2016, ..., ES2020, ES2021, etc.
+        3)Think of ECMAScript like "the rulebook" that JavaScript follows.
+
+    16)lib
+        It tells the TypeScript compiler which built-in JavaScript libraries and APIs it should include during type-checking.
 */

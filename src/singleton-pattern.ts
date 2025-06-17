@@ -14,8 +14,8 @@ export class Person{
     }
 }
 
-const person1  = Person.getInstance()
-const person2 = Person.getInstance()
+const person1:Person  = Person.getInstance()
+const person2:Person = Person.getInstance()
 
 console.log(person1 === person2) //true
 
