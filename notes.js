@@ -92,4 +92,7 @@
 
     16)lib
         It tells the TypeScript compiler which built-in JavaScript libraries and APIs it should include during type-checking.
+
+    17)decorator
+        A decorator is just a special function that can add extra information or behavior to a class, method, property, or parameter.
 */
