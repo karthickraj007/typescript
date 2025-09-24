@@ -95,4 +95,11 @@
 
     17)decorator
         A decorator is just a special function that can add extra information or behavior to a class, method, property, or parameter.
+
+    18) STACK MEMORY                     HEAP MEMORY
+        a      → 10                    (nothing special)
+        b      → 20                    (nothing special)
+        obj    → 101  ──▶              { name: "Karthik" }
+        arr    → 202  ──▶              [1, 2, 3, 4]
+
 */
