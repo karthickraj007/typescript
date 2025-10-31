@@ -8,16 +8,28 @@
         1)install typescript
             npm i typescript
         2)typescript version
-            tsc -v
+            npx tsc -v -> both local and global
+            tsc - v -> only global
         3)create a tsconfig.json ->configuration file for the TypeScript compiler
             tsc --init
         4)run the typescript file
             1)single file
-                tsc filename
+                npx tsc filename
             2)mulitiple files
-                tsc
+                npx tsc
         5)watch mode
-            tsc --watch
+            npx tsc --watch
+
+    2)Local TypeScript
+        node_modules/
+        .bin/
+            tsc   ← local TypeScript
+
+    3)Global TypeScript
+        1)PATH = list of folders your computer checks for commands
+        2)PATH is stored in Environment Variables
+        2)Your OS searches in PATH folders.
+            path -> C:\Users\<you>\AppData\Roaming\npm\tsc
 
     2)export and import
         1)When you use export, TypeScript understands that the file is a module and keeps its variables/functions separate from other files.
