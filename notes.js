@@ -103,7 +103,7 @@
         3)Think of ECMAScript like "the rulebook" that JavaScript follows.
 
     16)lib
-        It tells the TypeScript compiler which built-in JavaScript libraries and APIs it should include during type-checking.
+        The asynchronous engine inside Node.js that runs the event loop, network I/O, timers, and thread pool.
 
     17)decorator
         A decorator is just a special function that can add extra information or behavior to a class, method, property, or parameter.
@@ -111,7 +111,24 @@
     18) STACK MEMORY                     HEAP MEMORY
         a      → 10                    (nothing special)
         b      → 20                    (nothing special)
-        obj    → 101  ──▶              { name: "Karthik" }
-        arr    → 202  ──▶              [1, 2, 3, 4]
+        obj    → 101  ──▶              101 -> { name: "Karthik" }
+        arr    → 202  ──▶              202 -> [1, 2, 3, 4]
+
+    19)what is Api
+        1)“API” means a set of functions given by someone else
+        2)You don’t need to know how it works
+        3)You don’t need to know internal code
+        4)Browser gives ready-made functions (APIs):
+            1)DOM API
+            2)Fetch API
+        5)Node.js gives ready-made functions (APIs):
+            1)fs
+            2)http
+
+    20).dotenv -> used to load secret values from a .env file
+        1)reads your .env file
+        2)parses the variables
+        3)stores them into process.env
+        4)it works only root folder
 
 */
