@@ -131,4 +131,37 @@
         3)stores them into process.env
         4)it works only root folder
 
+    21)Hoisting
+        it is initializes memory for variables and functions before executing code.
+
+    22)execution Context
+        1)it is an environment where JavaScript runs code
+        2)Types of Execution Context
+            1)Global Execution Context
+                global variables
+                global functions
+                window / global This
+
+            2)Function Execution Context
+                function arguments
+                local variables
+                local functions
+
+        3)execution Context has two things:
+            1)MEMORY CREATION PHASE
+                JavaScript prepares memory for variables, functions, and this. but does NOT execute code.
+                1)Variables → create and set to undefined
+                2)Functions → full function stored
+                3)Link to window object
+                4)Set this → window object
+                5)Scope chain prepared
+
+            2)EXECUTION PHASE
+                Now JS goes line by line and executes the code.
+                1)Assigns values
+                2)Runs functions
+                3)Evaluates expressions
+                4)Controls flow (if/for/etc)
+
+
 */
