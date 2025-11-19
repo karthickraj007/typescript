@@ -36,7 +36,7 @@
         2)When you use import, TypeScript knows exactly where the variable/function is coming from.
 
 
-    3)scope
+    3)scope -> it determines the accessibility (visibility) of variables.
         Scope	               Accessible Where?
         Global	               Anywhere in the file (or other files with var)
         Function	           Only inside the function
@@ -134,13 +134,25 @@
     21)Hoisting
         it is initializes memory for variables and functions before executing code.
 
+    22)Types of scopes
+        1)global scope
+            1)creates Execution Context 
+            2)it contains both Variable Environment + Lexical Environment
+        2)Function Scope
+            1)creates Execution Context 
+            2)it contains both Variable Environment + Lexical Environment
+
+        3)Block Scope
+            1)does NOT create Execution Context
+            2)creates only a Lexical Environment
+
     22)execution Context
         1)it is an environment where JavaScript runs code
         2)Types of Execution Context
             1)Global Execution Context
-                global variables
-                global functions
-                window / global This
+                1)global variables
+                2)global functions
+                3)window Object
 
             2)Function Execution Context
                 function arguments
@@ -149,13 +161,12 @@
 
         3)execution Context has two things:
             1)MEMORY CREATION PHASE
-                JavaScript prepares memory for variables, functions, and this. but does NOT execute code.
                 1)Variables → create and set to undefined
                 2)Functions → full function stored
-                3)Link to window object
-                4)Set this → window object
-                5)Scope chain prepared
-
+                3)link to window object
+                4)Scope chain prepared
+                5)Lexical Environment -> it Stores the variables and functions of the current scope and also a point to its parent scope
+                6)Scope -> A rule that decides which variables and functions are accessible in the current scope.
             2)EXECUTION PHASE
                 Now JS goes line by line and executes the code.
                 1)Assigns values
@@ -163,5 +174,7 @@
                 3)Evaluates expressions
                 4)Controls flow (if/for/etc)
 
+    23)closure
+        A closure is a function that remembers and can access variables from its outer scope, even after the outer function has finished execution.
 
 */
