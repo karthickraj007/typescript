@@ -36,7 +36,7 @@
         2)When you use import, TypeScript knows exactly where the variable/function is coming from.
 
 
-    3)scope -> it determines the accessibility (visibility) of variables.
+    3)scope -> it determines the visibility of variables.
         Scope	               Accessible Where?
         Global	               Anywhere in the file (or other files with var)
         Function	           Only inside the function
@@ -136,18 +136,25 @@
 
     22)Types of scopes
         1)global scope
-            1)creates Execution Context 
-            2)it contains both Variable Environment + Lexical Environment
+            Variables accessible everywhere in your code 
+
         2)Function Scope
-            1)creates Execution Context 
-            2)it contains both Variable Environment + Lexical Environment
+           Variables that exist only within a function (var is function-scoped)
 
         3)Block Scope
-            1)does NOT create Execution Context
-            2)creates only a Lexical Environment
+           Variables that exist only within curly braces {} (let/const only)
+
+        4)module scope
+            Isolated scope where nothing is shared unless explicitly exported
+
+        5)Lexical Scope
+             Inner functions can access outer function variables (closure)
+            
+        6)Scope Chain
+            javaScript's lookup mechanism that searches inner to outer scopes
 
     22)execution Context
-        1)it is an environment where JavaScript runs code
+        1)execution context is like a "workspace" where your code runs
         2)Types of Execution Context
             1)Global Execution Context
                 1)global variables
@@ -155,18 +162,21 @@
                 3)window Object
 
             2)Function Execution Context
-                function arguments
-                local variables
-                local functions
+                1)function arguments
+                2)local variables
+                3)local functions
+
+            3)Module Execution Context
+                1)Created when module is imported
+                2)module variables
 
         3)execution Context has two things:
             1)MEMORY CREATION PHASE
-                1)Variables → create and set to undefined
-                2)Functions → full function stored
-                3)link to window object
-                4)Scope chain prepared
-                5)Lexical Environment -> it Stores the variables and functions of the current scope and also a point to its parent scope
-                6)Scope -> A rule that decides which variables and functions are accessible in the current scope.
+               1.Create arguments: {a: undefined, b: undefined}
+               2.Hoist variables: x = undefined
+               3.Hoist function declarations
+               4.Setup scope chain
+               5.Set this value
             2)EXECUTION PHASE
                 Now JS goes line by line and executes the code.
                 1)Assigns values
@@ -176,5 +186,132 @@
 
     23)closure
         A closure is a function that remembers and can access variables from its outer scope, even after the outer function has finished execution.
+
+    24)diff between tsc and ts-node
+        Feature	             tsc	                            ts-node
+        1)Purpose	         Compile TS → JS	                Run TS directly
+        2)JS Output	         Creates .js files on disk	        No files, JS in memory
+        3)Execution	         Does not run code	                Runs TS immediately
+        4)Type Checking	     Full type checking	                Default yes, can skip with --transpile-only
+        5)Speed	             Slower(compiles whole project)	    Faster (compiles only needed files)
+        6)Compilation Style  Ahead-of-time (AOT)                Just-in-time (JIT)
+
+    25)Type Definition File (.d.ts)
+        A file that tells TypeScript the types of functions, variables, or modules
+
+    26)Module System
+        1)CommonJS (CJS)
+            1)Syntax -> require() / module.exports -> static import 
+            2)Usage -> Node.js only
+            3)File extension -> .js (by default in Node.js)
+
+        2)ES Module (ESM)
+            1)syntax -> import / export -> static import 
+            2)Node.js + modern browsers
+            3)File extension -> .mjs or "type": "module" in package.json
+
+    27)binary -> 0 and 1
+        1)Decimal = Human language
+        2)Binary = Computer language
+        3)Hex = Shorthand for computer language
+
+
+    28)Dynamic Import
+        1)The module is loaded at runtime,
+        2)Dynamic import is async because it returns a Promise.
+            const math = await import('./math.js');
+
+    29)UTF-8
+        1)UTF-8 stands for Unicode Transformation Format – 8 bit.
+        2)It’s a way to store text (characters) as bytes so computers can understand them.
+
+    30)imported variables
+        1)imported variables are read-only references (live bindings).
+        2)You cannot reassign an imported binding directly.
+        3)exported variable is mutable (like an object), you can change its property, but not the variable itself:
+        3)Ex:
+            import { m } from './main.js';
+            m = 5; //Error in ESM
+
+    31)callstack
+        1)The call stack is a data structure that tracks function calls which use stack memory
+        2)The SECURITY LOG that tracks who enters/leaves
+        3)Call Stack contains REFERENCES to FEC memory locations
+
+    32)diff between Variable Environment vs Lexical Environment
+        1)Variable Environment
+            1)Stores -> var declarations and function declarations.
+            2)Ex -> var x = 10;  function hello() { console.log("Hello")}
+
+        2)Lexical Environment
+            1)Stores let, const, class, module imports, and block-scoped declarations.
+            2)let y = 20; const z = 30;
+
+    33)What is an Environment
+        An environment is a "storage space" where JavaScript keeps track of variables and functions in a specific scope.
+
+    34)What is "Isolated"?
+        1)Isolated means "completely separate and protected"
+        2)each module lives in its own private room with no windows or doors to other rooms.
+
+    35)GEC in Memory
+        GLOBAL EXECUTION CONTEXT {
+            Variable Environment: {
+                globalVar: "I'm global",
+                calculate: <function reference>,
+                // Other global variables...
+            },
+            Scope Chain: [GEC],
+            this: window (in browsers)
+        }
+
+    36)FEC in Memory
+        FUNCTION EXECUTION CONTEXT (calculate) {
+            Variable Environment: {
+                Arguments: {0: 5, 1: 3, length: 2},
+                a: 5,
+                b: 3,
+                result: 8,                    // ← After execution
+                message: "Sum: 8",            // ← After execution
+            },
+            Scope Chain: [FEC(calculate), GEC],
+            this: window (in browsers)
+        }
+
+    37)Stack Memory
+        Purpose: Store execution contexts & primitive values
+        Speed: Very fast (just move stack pointer)
+        Management: Automatic (LIFO)
+        Size: Limited (usually 1-8MB)
+        Lifetime: Function scope
+
+    38)Heap Memory
+        Purpose: Store objects, functions, arrays
+        Speed: Slower (dynamic allocation)
+        Management: Garbage collection
+        Size: Large (most available memory)
+        Lifetime: Until no references
+
+    39)Memory Map Visualization:
+        STACK MEMORY                               HEAP MEMORY
+
+        Address     Value                      Address     Value
+        ─────────   ────────────────────       ─────────   ──────────────────
+        0x7ffe1000  [GEC]                      0x12345000  {age:25, name:"John"}
+        0x7ffe1004  age: 25                    0x12345040  [95, 87, 92]  
+        0x7ffe1008  name: "John"               0x12345080  {value: 50}
+        0x7ffe100c  person: →0x12345000
+        0x7ffe1010  scores: →0x12345040
+
+        --------------------------------
+        0x7ffe2000  [FEC calculate()]          (Garbage Collection manages this)
+        0x7ffe2004  result: 100
+        0x7ffe2008  temp: →0x12345080
+
+        --------------------------------
+
+        0x7ffe2001  [FEC student()]          (Garbage Collection manages this)
+        0x7ffe2005  result: 100
+        0x7ffe2007  temp: →0x12345080
 
 */
