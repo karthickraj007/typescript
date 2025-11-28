@@ -8,7 +8,7 @@
         1)install typescript
             npm i typescript
         2)typescript version
-            npx tsc -v -> both local and global
+            npx tsc -v -> local
             tsc - v -> only global
         3)create a tsconfig.json ->configuration file for the TypeScript compiler
             tsc --init
@@ -106,7 +106,17 @@
         The asynchronous engine inside Node.js that runs the event loop, network I/O, timers, and thread pool.
 
     17)decorator
-        A decorator is just a special function that can add extra information or behavior to a class, method, property, or parameter.
+        1)Decorators are special functions that modify/configure classes, methods, or properties, parameter.
+        2)TS
+            @decorator
+            class MyClass { }
+            
+        3)Js calls the decorator function like this
+            MyClass = decorator(MyClass);
+
+    18)metadata
+        1)Extra information about your code that decorators attach
+        2)Decorators use metadata to tell frameworks how to handle your code
 
     18) STACK MEMORY                     HEAP MEMORY
         a      → 10                    (nothing special)
@@ -134,7 +144,7 @@
     21)Hoisting
         it is initializes memory for variables and functions before executing code.
 
-    22)Types of scopes
+    22)Types of scopes -> rule for access variable
         1)global scope
             Variables accessible everywhere in your code 
 
@@ -148,10 +158,12 @@
             Isolated scope where nothing is shared unless explicitly exported
 
         5)Lexical Scope
-             Inner functions can access outer function variables (closure)
-            
+            1)variable is accessible based on where it is written in the code.
+            2)lexical scope to build the scope hierarchy.
+            3)ex -> child scope can access parent scope
+
         6)Scope Chain
-            javaScript's lookup mechanism that searches inner to outer scopes
+           1)Scope chain is the path for search variable
 
     22)execution Context
         1)execution context is like a "workspace" where your code runs
@@ -174,7 +186,7 @@
             1)MEMORY CREATION PHASE
                1.Create arguments: {a: undefined, b: undefined}
                2.Hoist variables: x = undefined
-               3.Hoist function declarations
+               3.Hoist function declarations and class
                4.Setup scope chain
                5.Set this value
             2)EXECUTION PHASE
@@ -183,6 +195,7 @@
                 2)Runs functions
                 3)Evaluates expressions
                 4)Controls flow (if/for/etc)
+                5)Create CLOSURES when needed
 
     23)closure
         A closure is a function that remembers and can access variables from its outer scope, even after the outer function has finished execution.
@@ -204,22 +217,28 @@
             1)Syntax -> require() / module.exports -> static import 
             2)Usage -> Node.js only
             3)File extension -> .js (by default in Node.js)
+            4)type of import
+                1)static -> run sync
+                    require()
+                2)dyanmic -> run async
+                    if (condition) {
+                        const auth = require('./auth.js');
+                    }
 
         2)ES Module (ESM)
             1)syntax -> import / export -> static import 
             2)Node.js + modern browsers
             3)File extension -> .mjs or "type": "module" in package.json
+            4)type of import
+                1)static -> run sync
+                    import {person} from './index.js'
+                2)dyanmic -> run async
+                    await import('./math.js') -> return promise
 
     27)binary -> 0 and 1
         1)Decimal = Human language
         2)Binary = Computer language
         3)Hex = Shorthand for computer language
-
-
-    28)Dynamic Import
-        1)The module is loaded at runtime,
-        2)Dynamic import is async because it returns a Promise.
-            const math = await import('./math.js');
 
     29)UTF-8
         1)UTF-8 stands for Unicode Transformation Format – 8 bit.
@@ -234,9 +253,12 @@
             m = 5; //Error in ESM
 
     31)callstack
-        1)The call stack is a data structure that tracks function calls which use stack memory
-        2)The SECURITY LOG that tracks who enters/leaves
-        3)Call Stack contains REFERENCES to FEC memory locations
+        1)It's the mechanism that tracks function calls and Execution Contexts
+        2)It tracks:
+            1)Which Execution Context is currently running
+            2)What function code is being executed
+            3)Where to return when done
+            4)The exact position in the code
 
     32)diff between Variable Environment vs Lexical Environment
         1)Variable Environment
@@ -254,29 +276,6 @@
         1)Isolated means "completely separate and protected"
         2)each module lives in its own private room with no windows or doors to other rooms.
 
-    35)GEC in Memory
-        GLOBAL EXECUTION CONTEXT {
-            Variable Environment: {
-                globalVar: "I'm global",
-                calculate: <function reference>,
-                // Other global variables...
-            },
-            Scope Chain: [GEC],
-            this: window (in browsers)
-        }
-
-    36)FEC in Memory
-        FUNCTION EXECUTION CONTEXT (calculate) {
-            Variable Environment: {
-                Arguments: {0: 5, 1: 3, length: 2},
-                a: 5,
-                b: 3,
-                result: 8,                    // ← After execution
-                message: "Sum: 8",            // ← After execution
-            },
-            Scope Chain: [FEC(calculate), GEC],
-            this: window (in browsers)
-        }
 
     37)Stack Memory
         Purpose: Store execution contexts & primitive values
@@ -314,4 +313,48 @@
         0x7ffe2005  result: 100
         0x7ffe2007  temp: →0x12345080
 
+
+    40)JavaScript Memory Model
+        RAM Layout:
+        ─────────────────────────────────────
+        │          STACK MEMORY             │ ← Grows downward
+        │                                   │
+        │ ┌───────────────────────────────┐ │
+        │ │          CALL STACK           │ │
+        │ │                               │ │
+        │ │  ┌─────────────────────────┐  │ │
+        │ │  │ Function EC 2           │  │ │
+        │ │  ├─────────────────────────┤  │ │
+        │ │  │ Function EC 1           │  │ │
+        │ │  ├─────────────────────────┤  │ │
+        │ │  │ Global EC               │  │ │
+        │ │  └─────────────────────────┘  │ │
+        │ │                               │ │
+        │ └───────────────────────────────┘ │
+        │                                   │
+        │ ──────────────────────────────────│ ← Boundary
+        │                                   │
+        │          HEAP MEMORY              │ ← Grows upward  
+        │                                   │
+        │ ┌───────────────────────────────┐ │
+        │ │ Objects: {name: "John"}      │ │
+        │ │ Arrays: [1, 2, 3]            │ │
+        │ │ Functions: {code...}         │ │
+        │ │ Closures                     │ │
+        │ └───────────────────────────────┘ │
+        │                                   │
+        │          CODE SEGMENT             │
+        │ ┌───────────────────────────────┐ │
+        │ │ Executable JavaScript code    │ │
+        │ └───────────────────────────────┘ │
+        ─────────────────────────────────────
+
+    41)npm =>node package manager
+        1)npm is primarily a package manager. Its main job is to install packages (npm install).
+
+    42)npx -> node package execute
+        1)npx is a package runner. Its main job is to execute packages.
+
+    43)prototype
+        Prototype is a special hidden object that stores shared properties and methods for other objects.
 */
